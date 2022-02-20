@@ -1,3 +1,8 @@
+const fs = require('fs');
+const path = require('path');
+
+const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'));
+
 module.exports = {
   "env": {
       "browser": true,
@@ -21,6 +26,7 @@ module.exports = {
       "react"
   ],
   rules: {
+    'prettier/prettier': ['error', prettierOptions],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/jsx-props-no-spreading': [<enabled />, {
       html: 'ignore' | 'enforce',

@@ -76,7 +76,7 @@ export default function leadforms({errorCode, errMessage, leadgen, partner }) {
     const { partnerProfilePic } = partner.data || {};
     const { partnerName, description, leadFormName, thumbnailUrl, leadFormId } = leadgen || {};
     const { documentId } = partnerProfilePic || {};
-    const PIC = `${config.MINT_URL}/profile/customer/image/${documentId}`;
+    const PIC = `http://${config.MINT_URL}/profile/customer/image/${documentId}`;
     console.log('Servert Renders', leadgen, partner);
     if (errorCode) {
         return <Error statusCode={errorCode} title={errMessage} />

@@ -76,7 +76,7 @@ export default function leadforms({errorCode, errMessage, leadgen, partner }) {
     const { partnerProfilePic } = partner.data || {};
     const { partnerName, description, leadFormName, thumbnailUrl, leadFormId } = leadgen || {};
     const { documentId } = partnerProfilePic || {};
-    const PIC = `http://${config.MINT_URL}/profile/customer/image/${documentId}`;
+    const PIC = `${config.MINT_URL}/profile/customer/image/${documentId}`;
     console.log('Servert Renders', leadgen, partner );
     if (errorCode) {
         return <Error statusCode={errorCode} title={errMessage} />
@@ -91,7 +91,7 @@ export default function leadforms({errorCode, errMessage, leadgen, partner }) {
                 <meta property="og:site_name" content="Mintpro Customer" />
                 <meta property="og:title" content={leadFormName} />
                 <meta property="og:description" content={description} />
-                <meta property="og:image" content={thumbnailUrl} />
+                <meta property="og:image" content={`http://${thumbnailUrl}`} />
             </Head>
             <div className="leadgenwrapper">
                 {leadFormId ? (
